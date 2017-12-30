@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="心怀二次元的三次元人类">
+    
+    
+    
+    
+    
+    
+    <title>《AngularJS深度剖析与最佳实践》学习笔记（二） | 喵绪～</title>
+    <link href=”https://myau.moe“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: '6OTkVF2aNAnVRRuTPpOP934w-gzGzoHsz',
+        appKey: '83MfiENky0XoWE8XHM3gUpox'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/http:/p1r8dwfrm.bkt.clouddn.com/avatar.jpg'
+        var previews = 'http://p1r8dwfrm.bkt.clouddn.com/preivew/034.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/045.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/048.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/215.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://myau.moe" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://myau.moe">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">喵绪～</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/杂谈/">杂谈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">python</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/php/">php</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/message">
+                        <i class="fa fa-heart"></i>留言板
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://myau.moe">喵绪～</a>
+        >
+        <span>《AngularJS深度剖析与最佳实践》学习笔记（二）</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/AngularJS/">AngularJS</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2016-05-16
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2016-05-16
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/AngularJS/">AngularJS</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>测试展示文段</p>
+<a id="more"></a>
+<h3 id="controller-as的学习"><a href="#controller-as的学习" class="headerlink" title="controller as的学习"></a>controller as的学习</h3><hr>
+<p>在之前这本书给出的代码中,有很多次看到这样的代码:</p>
+<pre><code>controller:controller as vm
+.....
+angular.module(&apos;MyApp&apos;).controller(&apos;demoController&apos;,function() {
+    var vm = this;
+    //这里配置vm的各种属性;
+    vm.title = &apos;Angular&apos;;
+    ....
+});
+</code></pre><p>事实上,这是Angular1.2版本后推出的语法糖,我们平常写controller,一般是通过$scope来绑定变量,然后在模板中调用$scope的属性去渲染模板;类似的代码如下:</p>
+<pre><code>angular.module(&apos;MyApp&apos;).controller(&apos;demoController&apos;,function($scope) {
+    $scope.title = &apos;Angular&apos;;
+    //各种配置数据逻辑
+    ....
+});
+</code></pre><p><code>controller as</code>的出现,使得controller不用再注入$scope服务,controller变得更加接近javascript对象,满足了喜好POJO的人的需求;下面是<code>controller as</code>在指令和模板中的运用的一个例子:</p>
+<pre><code>&lt;div ng-app=&apos;MyApp&apos; ng-controller=&apos;exampleController as Demo&apos;&gt;
+    name:{{Demo.title}}
+&lt;/div&gt;
+
+...
+angular.module(&apos;MyApp&apos;).controller(&apos;exampleController&apos;,function() {
+    this.title = &apos;Angular&apos;;
+});
+</code></pre><p>打开界面,我们可以看到<code>name:Angular</code>,那么,这个是怎么实现的?书上给出了Angular中<code>controller as</code>的部分实现源码:<br>​<br>    controllerInstance = $controller(controller,local);<br>    //controller即为我们上下文环境的controller,由$controller产生对应的controller实例对象<br>    ….<br>    //如果指令as后面指定了名称<br>    if(directive.controlleras) {<br>        //将controller实例对象赋予到$scope对应名称的属性上<br>        local.$scope[directive.controlleras] = controllerInstance;<br>    }</p>
+<p>上边的注释是我根据自己的理解加的,从源码可以看出,<code>controller as</code>实际上就是将controller实例赋值到$scope上的一个属性中,属性名即为我们指定的名称,这样做的话,我们便可以在不注入$scope服务的情况下将数据绑定到模板上,只不过媒介变为了controller,controller等于变成了我们常用的javascript对象了。</p>
+<p>那么,<code>controller as</code>这货可以用在哪些地方呢?</p>
+<h4 id="指令上"><a href="#指令上" class="headerlink" title="指令上:"></a>指令上:</h4><p>   一般的代码形式是:</p>
+<pre><code>angular.module(&apos;MyApp&apos;).directive(&apos;directiveAs&apos;,function() {
+    return {
+        restrict: &apos;EA&apos;,
+        template: &apos;&lt;div&gt;&lt;/div&gt;&apos;,
+        controller: &apos;DemoController&apos;,
+        controllerAs: &apos;vm&apos;
+    };
+});
+</code></pre><p>   这样有个问题,很明显上面的格式是组件型指令的格式,组件型指令我们一般用独立作用域,即添加scope:{},但是scope:{}的属性是不会绑定到我们指定的vm的,它会绑定到$scope上,而我们期望的是:<br>   $scope-&gt;$scope.vm-&gt;scope:{}绑定的属性,这个问题其实很好解决,只需在上面添加<code>bindToController:true</code>就行了。    </p>
+<h4 id="路由上"><a href="#路由上" class="headerlink" title="路由上:"></a>路由上:</h4><p>   比如,我们可以在ui-router这样指定:</p>
+<pre><code>$stateProvider.state(&apos;demo&apos;,{
+    url: &apos;....&apos;,
+    templateUrl: &apos;....&apos;,
+    controller: &apos;demoController as vm&apos;
+});
+</code></pre><p>据说,用<code>controller as</code>,然后在模板中用$scope的属性去访问controller实例的数据可以有效避免<strong>“javascript原型链继承对于值类型的坑”</strong>(书上所说,会在后面章节提到),我并不是很理解,等我看到后面一点章节再提提这个东西吧,现在还不是很懂这个坑是什么坑,<code>controller as</code>又是怎么有效避免的。</p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '《AngularJS深度剖析与最佳实践》学习笔记（二）'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AONOSORA
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://p1r8dwfrm.bkt.clouddn.com/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>心怀二次元的三次元人类</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/">xampp + phpstorm的简单配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/06/07/javascript函数化构造器/">javascript函数化构造器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/12/《AngularJS深度剖析与最佳实践》学习笔记（一）/">《AngularJS深度剖析与最佳实践》学习笔记（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/08/Python֮Tkinter/">Python文档之Tkinter</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/">xampp + phpstorm的简单配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/06/07/javascript函数化构造器/">javascript函数化构造器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/03/浅析SSL协议/">浅析SSL协议</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/杂谈/" style="font-size: 9.17621823435147px;" class="tag-cloud-link">杂谈</a>
+    
+    <a href="/tags/python/" style="font-size: 8.24691395662579px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/php/" style="font-size: 16.771186908806122px;" class="tag-cloud-link">php</a>
+    
+    <a href="/tags/AngularJS/" style="font-size: 14.900305429285972px;" class="tag-cloud-link">AngularJS</a>
+    
+    <a href="/tags/javascript/" style="font-size: 11.322117446739453px;" class="tag-cloud-link">javascript</a>
+    
+    <a href="/tags/网络相关/" style="font-size: 15.874418994117367px;" class="tag-cloud-link">网络相关</a>
+    
+    <a href="/tags/Hexo/" style="font-size: 14.039509871572925px;" class="tag-cloud-link">Hexo</a>
+    
+    <a href="/tags/逆向/" style="font-size: 12.37424156317969px;" class="tag-cloud-link">逆向</a>
+    
+    <a href="/tags/云服务器/" style="font-size: 15.324775608163822px;" class="tag-cloud-link">云服务器</a>
+    
+    <a href="/tags/博客搭建/" style="font-size: 9.291640144128504px;" class="tag-cloud-link">博客搭建</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AONOSORA Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://p1r8dwfrm.bkt.clouddn.com/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+<script src="/js/comment/leancloud.js"></script>
+
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.owner = 'ZEROKISEKI'
+      window.commentConfig.repo = 'gal-comment-repo'
+      window.commentConfig.client_id = '27d3fea0ef621e9ff1e6'
+      window.commentConfig.client_secret = '1c953686c8acde73f925162eb81c229ab4b7ec58'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+        owner: 'ZEROKISEKI',
+        repo: 'gal-comment-repo',
+        client_id: '27d3fea0ef621e9ff1e6',
+        client_secret: '1c953686c8acde73f925162eb81c229ab4b7ec58',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
+
+</html>

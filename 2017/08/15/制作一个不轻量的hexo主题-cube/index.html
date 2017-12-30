@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="心怀二次元的三次元人类">
+    
+    
+    
+    
+    
+    
+    <title>制作一个不轻量的hexo主题:cube | 喵绪～</title>
+    <link href=”https://myau.moe“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: '6OTkVF2aNAnVRRuTPpOP934w-gzGzoHsz',
+        appKey: '83MfiENky0XoWE8XHM3gUpox'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/http:/p1r8dwfrm.bkt.clouddn.com/avatar.jpg'
+        var previews = 'http://p1r8dwfrm.bkt.clouddn.com/preivew/034.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/045.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/048.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/215.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://myau.moe" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://myau.moe">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">喵绪～</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/杂谈/">杂谈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">python</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/php/">php</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/message">
+                        <i class="fa fa-heart"></i>留言板
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://myau.moe">喵绪～</a>
+        >
+        <span>制作一个不轻量的hexo主题:cube</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Hexo/">Hexo</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2017-08-15
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2017-08-15
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Hexo/">Hexo</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>建议每篇文章都加上自己的preview的url地址</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前自己用Laravel写了个博客, 用了一段时间果断弃之, 又用回了原来的Hexo, 上网找了下主题, 没找到自己想要的, 于是决定自己写一款主题(在写主题的过程倒是找到了很多自己觉得不错的2333), 这篇文章只是用来记录一下最近这段时间写这个主题的过程, 中间存在着很多的问题, 主题目前还没有正式完成, 最近实习 + 毕设搞得比较颓, 9月份之后会逐步完善修复。</p>
+<p><a href="https://github.com/ZEROKISEKI/hexo-theme-cube" target="_blank" rel="noopener">hexo-theme-cube</a><br><a href="https://github.com/ZEROKISEKI/cube-generator" target="_blank" rel="noopener">cube-generator</a><br><a href="http://sora1.coding.me/" target="_blank" rel="noopener">示例网站</a>  </p>
+<p>其中<code>cube-generator</code>是主题的生成器, 通过运行对应的gulp命令能够重新生成主题cube</p>
+<h2 id="构建主题"><a href="#构建主题" class="headerlink" title="构建主题"></a>构建主题</h2><p>看了一些github上的主题项目, 很多都是ES5 + jQuery的实现方式, 于是自己有了一个想法，用ES6来写这个主题样式, 最终代码是要转化为ES5的, 那么就需要babel进行转换了, 又因为写样式决定采用SaSS, 所以就决定用gulp进行自动化构建, 所以最终的决定是:</p>
+<ul>
+<li>gulp中利用<code>browserify + babelify</code>对前端代码进行ES6到ES5的转换, Babel转换的规则写在<code>babelify</code>上面, js代码的入口规定为<code>source/js/app.js</code>, <code>app.js</code>中<code>import</code>对应功能的js代码, gulp进行<code>bundle script</code>的生成代码如下:</li>
+</ul>
+<pre><code>const b = browserify({
+    cache: {},
+       packageCache: {},
+       entries: path.join(&apos;./source/js/app.js&apos;),
+       debug: true
+})
+
+// 配置babel转换规则
+b.transform(babelify, {
+       presets: [&apos;env&apos;, &apos;es2015&apos;, &apos;stage-2&apos;],
+       plugins: [[&apos;transform-runtime&apos;, {
+           &apos;polyfill&apos;: true,
+           &apos;regenerator&apos;: true
+       }]]
+})
+
+gulp.task(&apos;buildScript&apos;, bundle)
+
+// b.on(&apos;update&apos;, bundle)
+
+// bundle生成script.js并且放在cube/source/js/script.js上面
+function bundle() {
+       return b.bundle()
+           .on(&apos;error&apos;, err =&gt; console.log(err))
+           .pipe(source(&apos;script.js&apos;))
+           .pipe(buffer())
+           .pipe(sourcemaps.init({ loadMaps: true }))
+           .pipe(uglify())
+           .pipe(sourcemaps.write(&apos;./&apos;))
+           .pipe(gulp.dest(path.join(Path.theme, Path.source, &apos;/js&apos;)))
+}
+</code></pre><p>JS的部分如下所示:</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/js%E6%A8%A1%E5%9D%97-1.png" alt="JS模块"></p>
+<p><a href="http://7xqtjy.com1.z0.glb.clouddn.com/js%E6%A8%A1%E5%9D%97-1.png" target="_blank" rel="noopener"><img src="http://7xqtjy.com1.z0.glb.clouddn.com/js%E6%A8%A1%E5%9D%97-1.png" alt="JS模块"></a></p>
+<ul>
+<li>在gulp中利用<code>gulp-inject</code>, 将<code>source/sass/</code>目录下除了<code>style.scss</code>的<code>.scss</code>文件用<code>@import</code>的方式进行注入,最后再对<code>style.scss</code>用<code>gulp-sass</code>进行编译生成最终的css文件, 代码如下:</li>
+</ul>
+<pre><code>// highlight和lightgallery已经在其他文件通过@import的方式引用了索引文件
+// 所以这里不注入对应文件夹里面的文件
+function buildStyle() {
+       const injectFiles = gulp.src([
+           path.join(Path.source, &apos;sass/*.scss&apos;),
+           &apos;!&apos; + path.join(Path.source, &apos;sass/highlight/*.scss&apos;),
+           &apos;!&apos; + path.join(Path.source, &apos;sass/lightgallery/*.scss&apos;),
+           &apos;!&apos; + path.join(Path.source, &apos;/sass/style.scss&apos;)
+       ], { read: false })
+        const injectOptions = {
+           transform(filePath) {
+               filePath = filePath.replace(`${Path.source}/sass/`, &apos;&apos;);
+               filePath = filePath.replace(&apos;_&apos;, &apos;&apos;);
+               return `@import &quot;${filePath}&quot;;`
+        },
+           starttag: &apos;// injector&apos;,
+           endtag: &apos;// endinjector&apos;,
+           addRootSlash: false
+    }
+
+    return gulp.src(path.join(Path.source, &apos;/sass/style.scss&apos;))
+           .pipe(Inject(injectFiles, injectOptions))
+           .pipe(Sass())
+           .pipe(postcss([ autoprefixer() ]))
+           .pipe(cleanCss({debug: true}))
+           .pipe(gulp.dest(path.join(Path.theme, Path.source, &apos;/css&apos;)))
+}
+</code></pre><ul>
+<li>将上面两部生成的<code>script.js</code>和<code>style.css</code>注入到<code>header.ejs</code>和<code>layout.ejs</code>(注入的其实是ejs的模板写法), 然后将ejs文件，字体和图片等静态资源移动到主题文件夹中，将主题文件夹放置到Hexo站点的themes文件夹里面, 完成主题的生成:</li>
+</ul>
+<pre><code>gulp.task(&apos;injectStyle&apos;, [&apos;buildStyle&apos;], () =&gt; {
+     const injectStyle = gulp.src(path.join(Path.theme, Path.source,&apos;/css/style.css&apos;), {
+          read: false
+     })
+
+     const injectOptions = {
+         starttag: &apos;&lt;!-- inject:style --&gt;&apos;,
+         addRootSlash: false,
+         transform(filePath) {
+             return `&lt;link href=&quot;&lt;%- url_for(&apos;css/${filePath}&apos;) %&gt;&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;`
+         },
+         ignorePath: path.join(Path.theme, Path.source, &apos;css&apos;)
+     }
+
+     return gulp.src(path.join(Path.layout, &apos;/_partial/head.ejs&apos;))
+         .pipe(Inject(injectStyle, injectOptions))
+         .pipe(gulp.dest(path.join(Path.theme, Path.layout, &apos;_partial&apos;)))
+})
+
+
+gulp.task(&apos;injectScript&apos;, [&apos;buildScript&apos;], () =&gt; {
+    const injectScript = gulp.src(path.join(Path.theme, Path.source, &apos;/js/script.js&apos;), {
+        read: false
+    })
+
+    const injectOptions = {
+        starttag: &apos;&lt;!-- inject:script --&gt;&apos;,
+        addRootSlash: false,
+        transform(filePath) {
+            return `&lt;script src=&quot;&lt;%- url_for(&apos;js/${filePath}&apos;) %&gt;&quot;&gt;&lt;/script&gt;`
+        },
+        ignorePath: path.join(Path.theme, Path.source, &apos;js&apos;)
+    }
+
+    return gulp.src(path.join(Path.layout, &apos;/layout.ejs&apos;))
+        .pipe(Inject(injectScript, injectOptions))
+        .pipe(gulp.dest(path.join(Path.theme, Path.layout)))
+})
+
+gulp.task(&apos;inject&apos;, [&apos;injectStyle&apos;, &apos;injectScript&apos;], () =&gt; {
+    return gulp.src([
+        &apos;!&apos; + path.join(Path.layout, &apos;/layout.ejs&apos;),
+        &apos;!&apos; + path.join(Path.layout, &apos;/_partial/head.ejs&apos;),
+        path.join(Path.layout, &apos;/**/*.ejs&apos;)
+    ]).pipe(gulp.dest(path.join(Path.theme, Path.layout)))
+})
+
+通过这两个任务产生的ejs代码如下:
+
+    layout.ejs:
+
+    &lt;!-- inject:script --&gt;
+    &lt;script src=&quot;&lt;%- url_for(&apos;js/script.js&apos;) %&gt;&quot;&gt;&lt;/script&gt;
+    &lt;!-- endinject --&gt;
+
+    _partial/head.ejs:
+
+    &lt;!-- inject:style --&gt;
+    &lt;link href=&quot;&lt;%- url_for(&apos;css/style.css&apos;) %&gt;&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    &lt;!-- endinject --&gt;
+</code></pre><ul>
+<li>通过<code>gulp-watch</code>监听对应领域的文件, 如果发生了变动就重新生成主题</li>
+</ul>
+<p>通过上面四个步骤的构建, 就可以在<code>source/js/</code>里面编写es6代码了, 开启<code>gulp watch</code>之后会监听对应模板和scss以及js等文件的变化重新生成主题(用node 子进程进行了<code>hexo clean &amp; hexo g</code>, 只要等待终端提示即可直接<code>hexo s</code>查看效果</p>
+<h2 id="博客的构建"><a href="#博客的构建" class="headerlink" title="博客的构建"></a>博客的构建</h2><p>Hexo博客的构建没什么特别的, 可以参考github上一些优秀的Hexo主题项目的布局格式, 结合<a href="http://hexo.io" target="_blank" rel="noopener">Hexo官方文档</a>, 在对应的模板ejs引用对应的Hexo变量实现主题模板的编写即可。关于这个主题的具体构建代码可以看<a href="https://github.com/ZEROKISEKI/cube-generator" target="_blank" rel="noopener">cube-generator</a></p>
+<h2 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h2><ul>
+<li><p>gulp的构建写得还是很乱, 原本的想法是想用<code>browser-sync</code>实现修改文件实时刷新的, 但是hexo启动服务器采用的是<code>hexo s</code>启动, 要先通过<code>hexo g</code>重新生成<code>public</code>文件夹才会刷新内容, 所以用<code>browser-sync</code>的想法也不了了之,后续有时间要把gulp的构建重新写一遍</p>
+</li>
+<li><p>移动端方面做的调试不多, 貌似在一些手机浏览器会出现一些奇怪的问题(我的小米4自带的原生浏览器加载不了用lightgallery读取的图片, 我觉得这个不是我的锅233, 但是有时间还是要看看)，highlight.js加载较慢导致手机打开博客页面一开始可以横向滚动(应该是我用了async进行异步的关系)</p>
+</li>
+<li><p>第三方评论系统只测试了畅言和gitment, disqus因为我这边暂时无法那个(你懂的), 所以这个部分还没写, 很多评论系统都挂了，所以在想是不是要自己也来写个评论系统2333</p>
+</li>
+<li><p>其他一些奇奇怪怪的问题….</p>
+</li>
+</ul>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '制作一个不轻量的hexo主题:cube'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AONOSORA
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://p1r8dwfrm.bkt.clouddn.com/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>心怀二次元的三次元人类</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/">xampp + phpstorm的简单配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/06/07/javascript函数化构造器/">javascript函数化构造器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/12/《AngularJS深度剖析与最佳实践》学习笔记（一）/">《AngularJS深度剖析与最佳实践》学习笔记（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/06/07/javascript函数化构造器/">javascript函数化构造器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/04/信息安全小知识/">信息安全小知识</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/03/浅析SSL协议/">浅析SSL协议</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2015/12/20/用hexo搭建博客/">用hexo搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/杂谈/" style="font-size: 13.899995997310771px;" class="tag-cloud-link">杂谈</a>
+    
+    <a href="/tags/python/" style="font-size: 10.45779005015924px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/php/" style="font-size: 8.995086852084487px;" class="tag-cloud-link">php</a>
+    
+    <a href="/tags/AngularJS/" style="font-size: 19.356040894034894px;" class="tag-cloud-link">AngularJS</a>
+    
+    <a href="/tags/javascript/" style="font-size: 8.487794690288329px;" class="tag-cloud-link">javascript</a>
+    
+    <a href="/tags/网络相关/" style="font-size: 13.843960580455057px;" class="tag-cloud-link">网络相关</a>
+    
+    <a href="/tags/Hexo/" style="font-size: 13.764666517556854px;" class="tag-cloud-link">Hexo</a>
+    
+    <a href="/tags/逆向/" style="font-size: 13.616762451842497px;" class="tag-cloud-link">逆向</a>
+    
+    <a href="/tags/云服务器/" style="font-size: 18.341163338054955px;" class="tag-cloud-link">云服务器</a>
+    
+    <a href="/tags/博客搭建/" style="font-size: 16.075158982225627px;" class="tag-cloud-link">博客搭建</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AONOSORA Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://p1r8dwfrm.bkt.clouddn.com/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+<script src="/js/comment/leancloud.js"></script>
+
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.owner = 'ZEROKISEKI'
+      window.commentConfig.repo = 'gal-comment-repo'
+      window.commentConfig.client_id = '27d3fea0ef621e9ff1e6'
+      window.commentConfig.client_secret = '1c953686c8acde73f925162eb81c229ab4b7ec58'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+        owner: 'ZEROKISEKI',
+        repo: 'gal-comment-repo',
+        client_id: '27d3fea0ef621e9ff1e6',
+        client_secret: '1c953686c8acde73f925162eb81c229ab4b7ec58',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
+
+</html>

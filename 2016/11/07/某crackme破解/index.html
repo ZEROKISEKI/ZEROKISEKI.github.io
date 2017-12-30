@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="心怀二次元的三次元人类">
+    
+    
+    
+    
+    
+    
+    <title>某crackme破解 | 喵绪～</title>
+    <link href=”https://myau.moe“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: '6OTkVF2aNAnVRRuTPpOP934w-gzGzoHsz',
+        appKey: '83MfiENky0XoWE8XHM3gUpox'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/http:/p1r8dwfrm.bkt.clouddn.com/avatar.jpg'
+        var previews = 'http://p1r8dwfrm.bkt.clouddn.com/preivew/034.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/045.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/048.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/215.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://myau.moe" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://myau.moe">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">喵绪～</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/杂谈/">杂谈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">python</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/php/">php</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/message">
+                        <i class="fa fa-heart"></i>留言板
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://myau.moe">喵绪～</a>
+        >
+        <span>某crackme破解</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/逆向/">逆向</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2016-11-07
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2016-11-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/逆向/">逆向</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>这是一次逆向的练习记录</p>
+<a id="more"></a>
+<h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00: 前言"></a>0x00: 前言</h2><p>前两天看雪CTF大赛开始，然而对于看雪的CM题目完全是一脸懵逼，于是决定进行CM的训练，废话不多说，目标是这家伙：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme1.png" alt="crackme1"></p>
+<p>居然还用了diablo的头像hhh，运行界面：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme2.png" alt="crackme2"></p>
+<h2 id="0x01-脱壳"><a href="#0x01-脱壳" class="headerlink" title="0x01: 脱壳"></a>0x01: 脱壳</h2><p>简单说明下，上下两个框都可以输入，如果输入有误，第二个框的值会变成”register unvalid”之类的东西，首先用<strong><em>PEID</em></strong>查下壳：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%9F%A5%E5%A3%B3.png" alt="查壳"><br>yoda’s crypter的壳，那么就来脱掉它吧~</p>
+<p>OD载入程序进行异常计数，然后断在最后一次异常中，此时查看堆栈得知SEH的处理<code>Handle</code>在<code>0040C70C</code>中，于是跳到异常处理函数中，下面是异常处理函数：</p>
+<pre><code>0040C70C    55              push ebp
+0040C70D    8BEC            mov ebp,esp
+0040C70F    57              push edi
+0040C710    8B45 10         mov eax,dword ptr ss:[ebp+0x10]
+0040C713    8BB8 C4000000   mov edi,dword ptr ds:[eax+0xC4]
+0040C719    FF37            push dword ptr ds:[edi]
+0040C71B    33FF            xor edi,edi
+0040C71D    64:8F07         pop dword ptr fs:[edi]
+0040C720    8380 C4000000 0&gt;add dword ptr ds:[eax+0xC4],0x8
+0040C727    8BB8 A4000000   mov edi,dword ptr ds:[eax+0xA4]
+0040C72D    C1C7 07         rol edi,0x7
+0040C730    89B8 B8000000   mov dword ptr ds:[eax+0xB8],edi
+0040C736    B8 00000000     mov eax,0x0
+0040C73B    5F              pop edi    这里edi的值为0x40A950,为跳转到OEP的关键
+0040C73C    C9              leave
+0040C73D    C3              retn
+</code></pre><p>跳到edi指向的地址，然后单步跟踪，很快就找到了OEP了，OEP代码如下：</p>
+<pre><code>00401000    6A 00           push 0x0
+00401002    E8 71020000     call d2k2_crk.00401278                   ; jmp 到 kernel32.GetModuleHandleA
+00401007    A3 40314000     mov dword ptr ds:[0x403140],eax
+0040100C    6A 00           push 0x0
+0040100E    68 28104000     push d2k2_crk.00401028
+00401013    6A 00           push 0x0
+00401015    6A 01           push 0x1
+00401017    FF35 40314000   push dword ptr ds:[0x403140]
+0040101D    E8 62020000     call d2k2_crk.00401284                   ; jmp 到 user32.DialogBoxParamA
+00401022    50              push eax
+00401023    E8 4A020000     call d2k2_crk.00401272                   ; jmp 到 kernel32.ExitProcess
+00401028    55              push ebp
+00401029    8BEC            mov ebp,esp
+0040102B    817D 0C 1101000&gt;cmp dword ptr ss:[ebp+0xC],0x111
+</code></pre><p>明显的TASM/MASM32程序，于是脱壳，再次查壳：<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%9F%A5%E5%A3%B3%28%E5%B7%B2%E8%84%B1%E5%A3%B3%29.png" alt="crackme-查壳(已脱壳)"></p>
+<h2 id="0x02-破解"><a href="#0x02-破解" class="headerlink" title="0x02: 破解"></a>0x02: 破解</h2><p>一上来先用很<strong>low</strong>的中文搜索法，如果不行就打算下<code>DLGITEMTEXT</code>的断点试试，但是没想到中文搜索居然成功了:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2.png" alt="crackme-中文搜索"></p>
+<p>位置都在附近，随便点进一个看看(下面中文的注释是我写的,英文的是原本就有的)：</p>
+<pre><code>004010C2    E8 C9010000     call &lt;jmp.&amp;user32.GetDlgItemTextA&gt;       ; 这里应该是要求某种格式
+004010C7    83F8 10         cmp eax,0x10                             ; 这里的eax是第二个框的值，要求第二个框放16个数
+004010CA    75 5D           jnz short d2k2_crk.00401129
+004010CC    6A 28           push 0x28
+004010CE    68 A0304000     push d2k2_crk.004030A0
+004010D3    6A 67           push 0x67
+004010D5    FF75 08         push dword ptr ss:[ebp+0x8]
+004010D8    E8 B3010000     call &lt;jmp.&amp;user32.GetDlgItemTextA&gt;
+004010DD    85C0            test eax,eax                             ; eax是我们的输入值的个数
+004010DF    74 20           je short d2k2_crk.00401101               ; 这个是没有输入的跳转
+004010E1    83F8 08         cmp eax,0x8
+004010E4    7F 2F           jg short d2k2_crk.00401115               ; 输入值不能大于8位
+004010E6    83F8 01         cmp eax,0x1                              ; 这里这个判定有些问题
+004010E9    7C 02           jl short d2k2_crk.004010ED
+004010EB    EB 50           jmp short d2k2_crk.0040113D
+004010ED    68 24304000     push d2k2_crk.00403024                   ; Name must be at least 2 chars long!
+004010F2    6A 68           push 0x68
+004010F4    FF75 08         push dword ptr ss:[ebp+0x8]
+004010F7    E8 A0010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+004010FC    E9 41010000     jmp d2k2_crk.00401242
+00401101    68 04304000     push d2k2_crk.00403004                   ; Enter a name!
+00401106    6A 68           push 0x68
+00401108    FF75 08         push dword ptr ss:[ebp+0x8]
+0040110B    E8 8C010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+00401110    E9 2D010000     jmp d2k2_crk.00401242
+00401115    68 12304000     push d2k2_crk.00403012                   ; Name is too long!
+0040111A    6A 68           push 0x68
+0040111C    FF75 08         push dword ptr ss:[ebp+0x8]
+0040111F    E8 78010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+00401124    E9 19010000     jmp d2k2_crk.00401242
+00401129    68 48304000     push d2k2_crk.00403048                   ; Your Registration Code is invalid!
+0040112E    6A 68           push 0x68
+00401130    FF75 08         push dword ptr ss:[ebp+0x8]
+00401133    E8 64010000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+00401138    E9 05010000     jmp d2k2_crk.00401242
+</code></pre><p>“Thank you for your support”在这段程序的下面，挺靠后的，然后中间有一大段程序，上面的代码中有一个跳转是到那一大段程序中的<br><code>jmp short d2k2_crk.0040113D</code>,我将下面的程序也给出来：</p>
+<pre><code>0040113D    33DB            xor ebx,ebx                              ; 将寄存器都变为0
+0040113F    33C9            xor ecx,ecx
+00401141    33D2            xor edx,edx
+00401143    33FF            xor edi,edi
+00401145    33F6            xor esi,esi
+00401147    8A99 A0304000   mov bl,byte ptr ds:[ecx+0x4030A0]
+0040114D    80FB 41         cmp bl,0x41
+00401150    7C 07           jl short d2k2_crk.00401159
+00401152    80FB 5A         cmp bl,0x5A
+00401155    7F 0E           jg short d2k2_crk.00401165
+00401157    EB 1F           jmp short d2k2_crk.00401178
+00401159    80C3 20         add bl,0x20                              ; 值在0-20的会被赋予F
+0040115C    80FB 41         cmp bl,0x41
+0040115F    7D 02           jge short d2k2_crk.00401163
+00401161    B3 46           mov bl,0x46                              ; 固定值F
+00401163  ^ EB ED           jmp short d2k2_crk.00401152
+00401165    80EB 20         sub bl,0x20
+00401168    80FB 5A         cmp bl,0x5A
+0040116B    7E 02           jle short d2k2_crk.0040116F
+0040116D    B3 47           mov bl,0x47
+0040116F    80FB 41         cmp bl,0x41
+00401172    7D 02           jge short d2k2_crk.00401176
+00401174    B3 53           mov bl,0x53
+00401176  ^ EB DF           jmp short d2k2_crk.00401157
+00401178    889A 87304000   mov byte ptr ds:[edx+0x403087],bl        ; 赋值给固定的十六位值
+0040117E    83C2 02         add edx,0x2                              ; 每次循环加2
+00401181    41              inc ecx
+00401182    3BC8            cmp ecx,eax                              ; 输入的位数等于循环次数
+00401184  ^ 75 C1           jnz short d2k2_crk.00401147
+00401186    33C9            xor ecx,ecx
+00401188    33D2            xor edx,edx
+0040118A    33DB            xor ebx,ebx
+0040118C    8A99 87304000   mov bl,byte ptr ds:[ecx+0x403087]
+00401192    03D3            add edx,ebx                              ; bl将这个数加给edx
+00401194    41              inc ecx
+00401195    83F9 10         cmp ecx,0x10
+00401198  ^ 75 F2           jnz short d2k2_crk.0040118C              ; 循环0x10次，不断加值给edx
+0040119A    69C0 FF000000   imul eax,eax,0xFF
+004011A0    0FAFD0          imul edx,eax
+004011A3    81F2 ABDFEBAC   xor edx,0xACEBDFAB                       ; 关键
+004011A9    0FCA            bswap edx
+004011AB    52              push edx
+004011AC    68 00304000     push d2k2_crk.00403000                   ; %lX
+004011B1    68 18314000     push d2k2_crk.00403118
+004011B6    E8 C3000000     call &lt;jmp.&amp;user32.wsprintfA&gt;
+004011BB    83C4 0C         add esp,0xC
+004011BE    33DB            xor ebx,ebx
+004011C0    33C9            xor ecx,ecx
+004011C2    8A99 18314000   mov bl,byte ptr ds:[ecx+0x403118]        ; 这个就是上面bswap的edx的值
+004011C8    80FB 3A         cmp bl,0x3A
+004011CB    7C 02           jl short d2k2_crk.004011CF
+004011CD    EB 09           jmp short d2k2_crk.004011D8
+004011CF    80C3 11         add bl,0x11
+004011D2    8899 18314000   mov byte ptr ds:[ecx+0x403118],bl
+004011D8    41              inc ecx
+004011D9    83F9 08         cmp ecx,0x8
+004011DC  ^ 75 E4           jnz short d2k2_crk.004011C2
+004011DE    33DB            xor ebx,ebx
+004011E0    33C9            xor ecx,ecx
+004011E2    33D2            xor edx,edx
+004011E4    8A99 18314000   mov bl,byte ptr ds:[ecx+0x403118]        ; 这里是对十六位值得奇数位的改变
+004011EA    889A 88304000   mov byte ptr ds:[edx+0x403088],bl        ; 这里完成对第二个比较的赋值
+004011F0    83C2 02         add edx,0x2
+004011F3    41              inc ecx
+004011F4    83FA 10         cmp edx,0x10
+004011F7  ^ 75 EB           jnz short d2k2_crk.004011E4
+004011F9    33DB            xor ebx,ebx
+004011FB    33C9            xor ecx,ecx
+004011FD    33D2            xor edx,edx
+004011FF    33C0            xor eax,eax
+00401201    8A9A C8304000   mov bl,byte ptr ds:[edx+0x4030C8]
+00401207    8A82 87304000   mov al,byte ptr ds:[edx+0x403087]        ; 这两个数据值要相等
+0040120D    33C3            xor eax,ebx
+0040120F  ^ 0F85 14FFFFFF   jnz d2k2_crk.00401129
+00401215    8A9A C9304000   mov bl,byte ptr ds:[edx+0x4030C9]
+0040121B    8A82 88304000   mov al,byte ptr ds:[edx+0x403088]
+00401221    04 05           add al,0x5
+00401223    38C3            cmp bl,al                                ; 要满足条件bl-al=5
+00401225  ^ 0F85 FEFEFFFF   jnz d2k2_crk.00401129
+0040122B    83C2 02         add edx,0x2
+0040122E    83FA 10         cmp edx,0x10
+00401231  ^ 75 CE           jnz short d2k2_crk.00401201
+00401233    68 6B304000     push d2k2_crk.0040306B                   ; Thank you for your support!
+00401238    6A 68           push 0x68
+0040123A    FF75 08         push dword ptr ss:[ebp+0x8]
+0040123D    E8 5A000000     call &lt;jmp.&amp;user32.SetDlgItemTextA&gt;
+</code></pre><p>讲讲这段逻辑的基本思路：</p>
+<pre><code>先判断第二个框的值是否是16位的，如果不是，跳转到unvalid
+取出第一个框的长度，要求第一个框的长度在2-8个字之间(事实上它那个判断逻辑有点问题，应该1个字节也是可以的)
+判断无误后，进入生成注册码算法
+
+# 生成注册码算法：
+
+在ds:[0+0x403087]数据段中存放着一个固定的值&quot;EJDACBBTACGIDFNG&quot;，这个值是注册码的雏形
+
+算法首先对我们输入的第一个框的值进行格式化和过滤，规则经分析后总结如下：
+
+       如果值在0-20，那么赋予固定值&quot;F&quot;；
+       如果值在21-3A,那么这个值加上0x20；
+       如果值在3B-40，那么赋予固定值&quot;G&quot;；
+       如果值在41-5A，那么不用处理；
+       如果值在5B-60，那么赋予固定值&quot;S&quot;；
+       如果值在61-7A，那么这个值减去0x20；
+       如果值在7B及以上，那么赋予固定值&quot;G&quot;；
+
+然后依次将这些值赋给ds:[0+0x403087]的偶数索引，比如我们输入的值是&quot;AAAAAAAA&quot;，则有：
+     &quot;EJDACBBTACGIDFNG&quot; =&gt; &quot;AJAAABATACAIAFAG&quot;
+
+接下来：
+
+edx = ds:[0+0x403087]的每个字符的ASCII值的总和
+eax = 输入的第一个框的值的长度 * 0xFF
+edx = eax * edx
+edx = edx xor 0xACEBDFAB(这个是固定的)
+edx进行bswap，也就是第一个字节跟第四个字节交换，第二个字节和第三个字节交换，比如&quot;AFDAFCBA&quot; =&gt; &quot;BAFCDAAF&quot;
+检验edx的每个位的ASCII值是否小于0x3A,如果是,加上0x11
+然后将edx的每一位替换ds:[0+0x403087]的奇数索引
+比如&quot;AJAAABATACAIAFAG&quot; =&gt; &quot;ABAAAFACADAAAAAF&quot;
+将这个值和第二个框输入的值进行比较，比较规则如下：
+
+       如果是偶数索引，要求相等；
+       如果是奇数索引，那么对应的第二个框的那一位的ASCII值要大5；
+</code></pre><p>思路理清了，接下来就是写个注册机了，注册机源代码在<a href="">这里</a>，用的易语言写的，运行如图：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%B3%A8%E5%86%8C%E6%9C%BA.png" alt="crackme-注册机"></p>
+<p>拿这个去尝试：</p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/crackme-%E6%B3%A8%E5%86%8C%E6%88%90%E5%8A%9F.png" alt="crackme-注册成功"></p>
+<p>爆破版的这里就不放了，就是改几个关键跳转的事情  </p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '某crackme破解'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AONOSORA
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://p1r8dwfrm.bkt.clouddn.com/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>心怀二次元的三次元人类</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/">xampp + phpstorm的简单配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/06/07/javascript函数化构造器/">javascript函数化构造器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/12/《AngularJS深度剖析与最佳实践》学习笔记（一）/">《AngularJS深度剖析与最佳实践》学习笔记（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/08/Python֮Tkinter/">Python文档之Tkinter</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/12/《AngularJS深度剖析与最佳实践》学习笔记（一）/">《AngularJS深度剖析与最佳实践》学习笔记（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/04/信息安全小知识/">信息安全小知识</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/03/浅析SSL协议/">浅析SSL协议</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2015/12/20/用hexo搭建博客/">用hexo搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2016/11/07/某crackme破解/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2016/11/07/某crackme破解/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2016/11/07/某crackme破解/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/杂谈/" style="font-size: 10.41170408368961px;" class="tag-cloud-link">杂谈</a>
+    
+    <a href="/tags/python/" style="font-size: 9.24602467634838px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/php/" style="font-size: 18.809847376424084px;" class="tag-cloud-link">php</a>
+    
+    <a href="/tags/AngularJS/" style="font-size: 18.407739069277685px;" class="tag-cloud-link">AngularJS</a>
+    
+    <a href="/tags/javascript/" style="font-size: 15.874507991428713px;" class="tag-cloud-link">javascript</a>
+    
+    <a href="/tags/网络相关/" style="font-size: 17.75084405422376px;" class="tag-cloud-link">网络相关</a>
+    
+    <a href="/tags/Hexo/" style="font-size: 8.873642263175995px;" class="tag-cloud-link">Hexo</a>
+    
+    <a href="/tags/逆向/" style="font-size: 8.300007199587657px;" class="tag-cloud-link">逆向</a>
+    
+    <a href="/tags/云服务器/" style="font-size: 9.102434867927535px;" class="tag-cloud-link">云服务器</a>
+    
+    <a href="/tags/博客搭建/" style="font-size: 12.574416376884098px;" class="tag-cloud-link">博客搭建</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AONOSORA Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://p1r8dwfrm.bkt.clouddn.com/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+<script src="/js/comment/leancloud.js"></script>
+
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.owner = 'ZEROKISEKI'
+      window.commentConfig.repo = 'gal-comment-repo'
+      window.commentConfig.client_id = '27d3fea0ef621e9ff1e6'
+      window.commentConfig.client_secret = '1c953686c8acde73f925162eb81c229ab4b7ec58'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+        owner: 'ZEROKISEKI',
+        repo: 'gal-comment-repo',
+        client_id: '27d3fea0ef621e9ff1e6',
+        client_secret: '1c953686c8acde73f925162eb81c229ab4b7ec58',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
+
+</html>

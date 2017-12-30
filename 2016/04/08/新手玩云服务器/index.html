@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="心怀二次元的三次元人类">
+    
+    
+    
+    
+    
+    
+    <title>新手玩云服务器 | 喵绪～</title>
+    <link href=”https://myau.moe“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: '6OTkVF2aNAnVRRuTPpOP934w-gzGzoHsz',
+        appKey: '83MfiENky0XoWE8XHM3gUpox'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/http:/p1r8dwfrm.bkt.clouddn.com/avatar.jpg'
+        var previews = 'http://p1r8dwfrm.bkt.clouddn.com/preivew/034.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/045.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/048.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/215.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://myau.moe" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://myau.moe">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">喵绪～</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/杂谈/">杂谈</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">python</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/php/">php</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/message">
+                        <i class="fa fa-heart"></i>留言板
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://myau.moe">喵绪～</a>
+        >
+        <span>新手玩云服务器</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/云服务器/">云服务器</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2016-04-08
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2016-04-08
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/云服务器/">云服务器</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>在腾讯云平台进行学生认证后,每个月都有64块的优惠券到账,最低配的云主机只需要65块,换言之,一个月只要1块钱就能租到云主机,还是挺爽的,今天花了点时间配置云服务器(我不会说我是带着电脑上课并且在玩这个的Q^Q),总结一下配置的基本步骤吧(其实很多我也不是很懂)</p>
+<a id="more"></a>
+<h2 id="0X00"><a href="#0X00" class="headerlink" title="0X00:"></a>0X00:</h2><h3 id="连接到云服务器："><a href="#连接到云服务器：" class="headerlink" title="连接到云服务器："></a>连接到云服务器：</h3><p>我的电脑系统是win7,而且买的是CentOS的,所以这里只说本地windows下怎么配置CentOS云服务器:</p>
+<p>腾讯官方文档给出的是用SecureCRT、putty来登录,个人觉得xshell可以完爆这两货。。。<br><a href="http://rj.baidu.com/soft/detail/15201.html?ald" target="_blank" rel="noopener">xshell下载地址</a></p>
+<p>打开xshell,新建服务器连接,如下图所示:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A51.png" alt="建立连接1"></p>
+<pre><code>名称随你喜欢,填个有意义又简单的最好~
+主机填写云主机的公网IP
+端口号默认为22
+说明随你喜欢,跟名称的说法一样~
+</code></pre><p>进行连接,会提示你输入用户名,腾讯云主机的主机管理用户名如下所示:    </p>
+<pre><code>SUSE/CentOS/Debian：root
+Windows：Administrator
+ubuntu：ubuntu 
+</code></pre><p>密码的话,在你购买的订单中是有初始密码的,最好进行密码重置:<br>进入腾讯云中心,进入管理中心,点击云主机的<code>更多</code>进行密码重置:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E9%87%8D%E7%BD%AE%E5%AF%86%E7%A0%811.png" alt="重置密码">  </p>
+<h4 id="注意！要先将云主机关机才能重置密码"><a href="#注意！要先将云主机关机才能重置密码" class="headerlink" title="注意！要先将云主机关机才能重置密码"></a>注意！要先将云主机关机才能重置密码</h4><p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%BF%9B%E8%A1%8C%E8%BF%9E%E6%8E%A51.png" alt="进行连接1"></p>
+<p>在你下订单后购买到云主机后,可以将云主机私钥导入到你的电脑中,这个是建立连接的关键<br>点击浏览-&gt;文件,选择你的私钥,下面密码填你设置的密码,点击确定,进行连接,看到类似下图,说明连接成功~<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F1.png" alt="连接成功"></p>
+<h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><h3 id="进行云服务器的数据盘相关操作"><a href="#进行云服务器的数据盘相关操作" class="headerlink" title="进行云服务器的数据盘相关操作:"></a>进行云服务器的数据盘相关操作:</h3><p>数据盘信息:<br>运行以下命令可以查看数据盘相关信息,包括数据盘大小,被占用的空间以及剩余空间等等  </p>
+<pre><code># fdisk -l
+# df -h 
+</code></pre><p>数据盘分区:<br>官方文档说是按以下命令来进行数据盘分区:</p>
+<pre><code># fdisk /dev/xvdbs
+</code></pre><p>嗯,我试了下这个命令,结果给我提示这个:<br>    Unable to open /dev/xvdb</p>
+<p>查了下,发现新的CentOS系统应该按这样的命令去分区:</p>
+<pre><code># fdisk /dev/vdbs
+</code></pre><p>执行完这个命令以后,依次执行以下命令:</p>
+<pre><code>n         新建分区
+p         进行主分区
+1         使用第一个主分区
+Enter
+Enter     这里的两次Enter都是选择默认配置
+wq        保存并退出
+</code></pre><p>此时再输入<code>fdisk -l</code>如果看到<code>/dev/vdbs</code>和<code>/dev/vdal</code>,<br>则说明分区成功<br>当然,分区可以创建多个,具体看你喜欢,不过要谨慎!</p>
+<p>格式化新分区:<br>格式化新分区是为了后面能在系统上安装软件以及进行相关必要的操作:</p>
+<pre><code>mke2fs、mkfs.ext2、mkfs.ext3、mkfs.ext4
+</code></pre><p>Windows下的文件系统有Fat32、NTFS，CentOS使用的文件系统为ext。之前CentOS5版本使用ext3作为默认的文件系统，而CentOS6使用ext4作为默认的文件系统,我的是CentOS6.5的,当然是ext4啦~  </p>
+<pre><code>mkfs.ext4 /dev/vdb1
+</code></pre><p>挂载新分区:<br>依旧给出代码(官方文档给出的):</p>
+<pre><code># mkdir /mydata                    创建mydata目录
+# mount /dev/xvdb1 /mydata      手动挂载新分区
+</code></pre><p>再用<code>df -h</code>查看,如果看到<code>Filesystem</code>有<code>/dev/vdb1</code>和<code>/dev/vda1</code>的话就说明挂载新分区成功~</p>
+<p>添加分区信息(就是保存你的挂载):<br>这个操作是为了让主机在重启或关机后开机都能进行自动挂载,免得你每次手动挂载,这里按照官方文档给出的命令就行了~</p>
+<pre><code>echo &apos;/dev/xvdb1 /mydata ext3 defaults 0 0&apos; &gt;&gt; /etc/fstab  添加命令分区信息
+cat /etc/fstab  查看是否添加成功
+</code></pre><h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><h3 id="在云服务器进行软件安装"><a href="#在云服务器进行软件安装" class="headerlink" title="在云服务器进行软件安装:"></a>在云服务器进行软件安装:</h3><p>腾讯云服务器提供了yum下载源,即我们可以通过yum在云服务器中下载东西,很简单的命令就可以安装:</p>
+<pre><code># yum install mysql mysql-server nginx php php-fpm
+</code></pre><p>按<code>y</code>确定后进行安装,出现<code>Complete</code>即安装成功</p>
+<p>安装完软件后,我们可以查看软件相关信息:</p>
+<pre><code># rpm -ql nginx       查看安装目录
+# rpm -q nginx         查看安装版本
+</code></pre><h2 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h2><h3 id="云服务器环境配置"><a href="#云服务器环境配置" class="headerlink" title="云服务器环境配置:"></a>云服务器环境配置:</h3><p>按照官方文档,我们来配置nginx和php:<br>配置nginx:<br>我们先启动nginx服务先  </p>
+<pre><code># service nginx start
+</code></pre><p>启动完后访问公网IP,如果能访问到,说明nginx服务启动成功</p>
+<p>配置php:<br>同样启动php服务先</p>
+<pre><code># service php-fpm start
+</code></pre><p>查看php-fpm默认配置<br>​    </p>
+<pre><code># cat /etc/php-fpm.d/www.conf |grep -i &apos;listen =&apos;
+</code></pre><p>​<br>如果看到<code>listen = 127.0.0.1:9000</code>,说明监听端口为9000,<br>我们要将php解析的请求全部转发到127.0.0.1:9000</p>
+<p>修改nginx配置:<br>​    </p>
+<pre><code># vim /etc/nginx/conf.d/default.conf
+</code></pre><p>按官方文档的修改方式来:</p>
+<pre><code>server {
+      listen       80;
+      root   /usr/share/nginx/html;
+      server_name  localhost;
+  #charset koi8-r;
+  #access_log  /var/log/nginx/log/host.access.log  main;
+      location / {
+          index  index.html index.htm;
+      }
+  #error_page  404              /404.html;
+  # redirect server error pages to the static page /50x.html
+  #
+      error_page   500 502 503 504  /50x.html;
+      location = /50x.html {
+          root   /usr/share/nginx/html;
+      }
+# proxy the PHP scripts to Apache listening on 127.0.0.1:80
+  #
+# location ~ \.php$ {
+  # proxy_pass   http://127.0.0.1;
+  # }
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+  #
+      location ~ \.php$ {
+          fastcgi_pass   127.0.0.1:9000;
+          fastcgi_index   index.php;
+          fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+          include        fastcgi_params;
+      }
+  # deny access to .htaccess files, if Apache&apos;s document root
+  # concurs with nginx&apos;s one
+  #
+  # location ~ /\.ht {
+  #    deny  all;
+  # }
+}
+</code></pre><p>修改完后按<code>ESC</code>,然后<code>：wq</code>，保存修改</p>
+<h4 id="注意！要加-不然是无法输的-我早上因为这个弄惨了QAQ"><a href="#注意！要加-不然是无法输的-我早上因为这个弄惨了QAQ" class="headerlink" title="注意！要加:,不然是无法输的,我早上因为这个弄惨了QAQ"></a>注意！要加<code>:</code>,不然是无法输的,我早上因为这个弄惨了QAQ</h4><p>然后重启nginx服务</p>
+<pre><code># service nginx restart
+</code></pre><p>验证配置:  </p>
+<pre><code># vim /usr/share/nginx/html/index.php 
+</code></pre><p>php的内容配置:</p>
+<pre><code>&lt;?php
+    echo &quot;&lt;title&gt;Test Page&lt;/title&gt;&quot;;
+    echo &quot;hello world&quot;;
+?&gt;
+</code></pre><p>接下来访问公网<code>IP/index.php</code>,看到<code>helloworld</code>就说明环境配置成功了</p>
+<h2 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h2><h3 id="部署代码到云服务器中"><a href="#部署代码到云服务器中" class="headerlink" title="部署代码到云服务器中:"></a>部署代码到云服务器中:</h3><p>一般我们要把代码放到云服务器中,就要通过FTP上传来放,<br>所以我们首先要在云服务器配置FTP服务,在腾讯云上可以直接<br>用yum来装vsftpd配置FTP:</p>
+<pre><code># yum install vsftpd
+</code></pre><p>然后是配置vsftpd</p>
+<pre><code># vim /etc/vsftpd/vsftpd.conf
+</code></pre><p>只要将下图的这些选项都搞好就行了,如果你要取消匿名登录使用ftp服务,那么要将<code>vsftpd.conf</code>中的<code>anonymous_enable=YES</code>注释掉或者改为<code>anonymous_enable=NO</code></p>
+<pre><code>local_enable=YES
+write_enable=YES
+local_umask=022
+anon_upload_enable=YES                //anon的这三个是要你去手动取消注释的,其他的默认都有了
+anon_mkdir_write_enable=YES            
+anon_umask=022                        
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
+listen=YES
+pam_service_name=vsftpd
+userlist_enable=YES
+tcp_wrappers=YES
+</code></pre><p>你要如何知道这个配置呢?可以通过以下代码进行读取,经过前面的<br>配置我们也能猜到是要用<code>cat</code>这个命令了:</p>
+<pre><code># cat /etc/vsftpd/vsftpd.conf |grep ^[^#]    
+</code></pre><p>配置了FTP服务后,我们要建立FTP用户名和密码,这是我们要建立FTP连接上传文件要用到的登录用户名和密码,<br>​<br>建立用户名:</p>
+<pre><code># useradd -d /home/megiki -s /sbin/nologin megiki       megiki是我ftp的用户名,所以将你的用户名替换掉megiki就行了
+</code></pre><p>给对应用户设置密码:</p>
+<pre><code># passwd megiki     这里同样替换你的ftp用户名
+</code></pre><h4 id="注意-这里会要你输入密码-并且重新输入-而你的输入是看不到的-所以你运行了上述命令后直接输入密码按Enter，然后再输入一次密码按Enter就行了-密码不要输错"><a href="#注意-这里会要你输入密码-并且重新输入-而你的输入是看不到的-所以你运行了上述命令后直接输入密码按Enter，然后再输入一次密码按Enter就行了-密码不要输错" class="headerlink" title="注意!,这里会要你输入密码,并且重新输入,而你的输入是看不到的,所以你运行了上述命令后直接输入密码按Enter，然后再输入一次密码按Enter就行了,密码不要输错"></a>注意!,这里会要你输入密码,并且重新输入,而你的输入是看不到的,所以你运行了上述命令后直接输入密码按Enter，然后再输入一次密码按Enter就行了,密码不要输错</h4><p>接下来就是修改pam文件了,修改这个文件的目的是为了真正让我们设置的ftp用户能连接到ftp服务器:</p>
+<pre><code># vim /etc/pam.d/vsftpd
+</code></pre><p>这里按官方文档的修改方式:</p>
+<pre><code>auth required /lib64/security/pam_listfile.so item=user sense=deny file=/etc/ftpusers onerr=succeed 
+auth required /lib64/security/pam_unix.so shadow nullok 
+auth required /lib64/security/pam_shells.so 
+account required /lib64/security/pam_unix.so 
+session required /lib64/security/pam_unix.so 
+</code></pre><p>修改完后确认:</p>
+<pre><code># cat /etc/pam.d/vsftpd #%PAM-1.0 
+</code></pre><p>下面这个是你修改后产生的结果:</p>
+<pre><code>auth required /lib64/security/pam_listfile.so item=user sense=deny file=/etc/ftpusers onerr=succeed 
+auth required /lib64/security/pam_unix.so shadow nullok 
+auth required /lib64/security/pam_shells.so 
+account required /lib64/security/pam_unix.so 
+session required /lib64/security/pam_unix.so
+</code></pre><p>事实上,我在配置的时候发现还是和官方文档的说明有很大差别的,这个是我修改之前的样子:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E4%BF%AE%E6%94%B9pam1.png" alt="修改之前">  </p>
+<p>这是我修改之后的样子:<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E4%BF%AE%E6%94%B9pam2.png" alt="修改之后"></p>
+<p>如果你在按我上面所说的方法配置,遇到了pam文件不一样的问题,也可以按我上面这两个图来配置(注意把里面的ftp用户名改为你的)</p>
+<p>这样云服务器的ftp服务算是完成了,我们可以用FTP上传工具去上传我们的<br>代码了,这里我们用官网说的FileZilla进行FTP上传,我们先建立一个新站点,以后直接连接这个站点就行了~<br><img src="http://7xqtjy.com1.z0.glb.clouddn.com/%E6%96%B0%E5%BB%BAftp%E8%BF%9E%E6%8E%A51.png" alt="新建站点"></p>
+<pre><code>主机:你的公网IP
+端口:用21端口
+登录类型:一般
+用户名:填写你设置的FTP用户
+密码:同上
+</code></pre><p>然后我们在<code>/usr/share/nginx/html</code>这个目录下进行代码文件的传输,<br>这样就把我们的代码部署到云服务器上了,比如你把<code>text.html</code>传到这个目录下,然后我们访问<code>你的公网IP/text.html</code>,内容就是你上传的<code>text.html</code>  </p>
+<p><img src="http://7xqtjy.com1.z0.glb.clouddn.com/FTP%E4%B8%8A%E4%BC%A0%E7%9B%AE%E5%BD%951.png" alt="上传目录"></p>
+<p>这个说一个问题啊,可能我们按上面的步骤进行FTP传输时可能一个都传输不了,这时你可以查看<code>/usr/share/nginx/html</code>这个文件的文件权限,如果是755,说明公共组是不能进行FTP上传的,这时候,我们可以在xshell5上进行权限的修改:</p>
+<pre><code># chmod -R 777 /usr/share/nginx/html
+</code></pre><p>将权限改为777,然后公共组就拥有了写入的功能,这时可以FTP传输了</p>
+<p>当然,如果你觉得这样不安全(事实上是确实有些不安全的),你可以用git的方式(简单又粗暴),用<code>git clone</code>的方式进行传输,你可以把你上传的代码放在你的<code>github</code>或者<code>coding</code>的私有库上,再传输给你的服务器,具体怎么做这里就不说了(如果你熟悉git操作的话你应该懂的,不懂git为何物的话请戳<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">这里</a>)</p>
+<h2 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h2><h3 id="结尾："><a href="#结尾：" class="headerlink" title="结尾："></a>结尾：</h3><p>好了,关于云服务器的配置就说到这里(好像写得有些太长了，其实我个人也不喜欢太长的博客,太长的博客我基本都没有认真看完的QAQ),这个只是新手级别的配置,云服务器是可以让你玩年系列的东西,特别是你在实际项目中的运用,有时间我会继续研究云服务器这个东西的(顺带研究nginx这个东西)</p>
+<p>玩这个东西花了我一早上的时间,早上的汇编和汇编实验课我都在干我自己的<br>(这里说一句,真的,大学那些计算机的课真是纯理论课,没有什么实际意义,老师讲的又慢,硬是能把20分钟的东西用两节课来讲。。。),这段时间我报名了’校园杯’,截止日期是4月23日,也没什么时间给我浪了,所以关于云服务器的探索就到这里,等我搞完这个比赛后再折腾这些(话说校园杯过了后还有CTF,挑战杯QAQ)。</p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '新手玩云服务器'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AONOSORA
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://p1r8dwfrm.bkt.clouddn.com/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>心怀二次元的三次元人类</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/01/11/xampp-phpstorm的简单配置/">xampp + phpstorm的简单配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/06/07/javascript函数化构造器/">javascript函数化构造器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/12/《AngularJS深度剖析与最佳实践》学习笔记（一）/">《AngularJS深度剖析与最佳实践》学习笔记（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/09/HEXO解决Google字库链接缓慢问题/">HEXO解决Google字库链接缓慢问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/08/Python֮Tkinter/">Python文档之Tkinter</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/12/《AngularJS深度剖析与最佳实践》学习笔记（一）/">《AngularJS深度剖析与最佳实践》学习笔记（一）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/05/16/《AngularJS深度剖析与最佳实践》学习笔记（二）/">《AngularJS深度剖析与最佳实践》学习笔记（二）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/08/15/制作一个不轻量的hexo主题-cube/">制作一个不轻量的hexo主题:cube</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/11/07/某crackme破解/">某crackme破解</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/04/08/新手玩云服务器/">新手玩云服务器</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/03/03/浅析SSL协议/">浅析SSL协议</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2015/12/20/用hexo搭建博客/">用hexo搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2016/10/31/脱壳练习1/">记一次小软件脱壳</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2016/04/08/新手玩云服务器/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2016/04/08/新手玩云服务器/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2016/04/08/新手玩云服务器/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/杂谈/" style="font-size: 16.275695286198907px;" class="tag-cloud-link">杂谈</a>
+    
+    <a href="/tags/python/" style="font-size: 18.210694520721223px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/php/" style="font-size: 11.890964107455694px;" class="tag-cloud-link">php</a>
+    
+    <a href="/tags/AngularJS/" style="font-size: 16.73805481312544px;" class="tag-cloud-link">AngularJS</a>
+    
+    <a href="/tags/javascript/" style="font-size: 12.74091244019343px;" class="tag-cloud-link">javascript</a>
+    
+    <a href="/tags/网络相关/" style="font-size: 16.30068448365917px;" class="tag-cloud-link">网络相关</a>
+    
+    <a href="/tags/Hexo/" style="font-size: 15.739659487734027px;" class="tag-cloud-link">Hexo</a>
+    
+    <a href="/tags/逆向/" style="font-size: 12.517487308003528px;" class="tag-cloud-link">逆向</a>
+    
+    <a href="/tags/云服务器/" style="font-size: 15.095260961041703px;" class="tag-cloud-link">云服务器</a>
+    
+    <a href="/tags/博客搭建/" style="font-size: 12.898135901290797px;" class="tag-cloud-link">博客搭建</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AONOSORA Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://p1r8dwfrm.bkt.clouddn.com/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+<script src="/js/comment/leancloud.js"></script>
+
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.owner = 'ZEROKISEKI'
+      window.commentConfig.repo = 'gal-comment-repo'
+      window.commentConfig.client_id = '27d3fea0ef621e9ff1e6'
+      window.commentConfig.client_secret = '1c953686c8acde73f925162eb81c229ab4b7ec58'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+        owner: 'ZEROKISEKI',
+        repo: 'gal-comment-repo',
+        client_id: '27d3fea0ef621e9ff1e6',
+        client_secret: '1c953686c8acde73f925162eb81c229ab4b7ec58',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
+
+</html>
