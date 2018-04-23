@@ -152,15 +152,15 @@
                         
                         
                         <li>
+                            <a href="/tags/Android逆向/">Android逆向</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/Vue/">Vue</a>
                         </li>
                         
                         <li>
                             <a href="/tags/Golang/">Golang</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/galgame/">galgame</a>
                         </li>
                         
                         
@@ -282,29 +282,46 @@
 <p>Vue全家桶系列: Vue2 + Vue-router + Vuex + Vue-i18n<br>前端模块打包构建: parcel<br>UI框架: Vuetify(一款渐进式Material Design框架)<br>前端数据库: Pouchdb<br>网络请求: axios<br>代码高亮和markdown渲染: github-markdown-css(自己造轮子不如用别人的轮子系列)  </p>
 <h2 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建:"></a>项目构建:</h2><p>首先你得安装了Golang, 并且设置好了$GOROOT和$GOPATH等变量, 如果没有配置过, 那么可以参考<a href="https://github.com/astaxie/build-web-application-with-golang/" target="_blank" rel="noopener">build-web-application-with-golang</a>教程配置</p>
 <p>如果上面的部分已经配置好了, 那么接下来要安装<code>go-astilectron</code>相关依赖:</p>
-<p>  $ go get -u github.com/asticode/go-astilectron<br>  $ go get -u github.com/asticode/go-astilectron-bundler/…<br>  $ go get github.com/ZEROKISEKI/go-astilectron-bootstrap</p>
-<p>在天朝的话, 上面get的过程八成会遇到这个错误</p>
-<p>  unrecognized import path “golang.org/x/ …”</p>
-<p>关于这个错误, 如果不能翻墙的话, 可以用golang的github镜像库去解决:</p>
-<p>  $ mkdir -p $GOPATH/src/golang.org/x<br>  $ cd $GOPATH/src/golang.org/x<br>  $ git clone <a href="https://github.com/golang/crypto.git" target="_blank" rel="noopener">https://github.com/golang/crypto.git</a><br>  $ git clone <a href="https://github.com/golang/net.git" target="_blank" rel="noopener">https://github.com/golang/net.git</a><br>  $ git clone <a href="https://github.com/golang/sys.git" target="_blank" rel="noopener">https://github.com/golang/sys.git</a></p>
-<p>git clone完之后可以重新<code>go get</code>, 应该就可以了, 此时可以通过bundler命令进行桌面可执行文件生成, 但是我们要先进行前端部分的build, 如果你没有安装parcel, 那么先全局进行安装parcel:</p>
-<p>  yarn global add parcel-bundler</p>
-<p>  or </p>
-<p>  npm install parcel-bundler -g</p>
-<p>进行build:</p>
-<p>  $ cd src<br>  $ yarn or npm install<br>  $ npm run build</p>
-<p>接下来可以可以bundler了:</p>
-<p>  $ cd ..<br>  $ astilectron-bundler -v</p>
-<p>上面那一步会去下载astlectron和electron, 天朝的话八成又会出问题了, 就是download没速度或者过于缓慢导致failed, 针对这点, 可能这样:</p>
+<pre><code>$ go get -u github.com/asticode/go-astilectron
+$ go get -u github.com/asticode/go-astilectron-bundler/...
+$ go get github.com/ZEROKISEKI/go-astilectron-bootstrap
+</code></pre><p>在天朝的话, 上面get的过程八成会遇到这个错误</p>
+<pre><code>unrecognized import path &quot;golang.org/x/ ...&quot;
+</code></pre><p>关于这个错误, 如果不能翻墙的话, 可以用golang的github镜像库去解决:</p>
+<pre><code>$ mkdir -p $GOPATH/src/golang.org/x
+$ cd $GOPATH/src/golang.org/x
+$ git clone https://github.com/golang/crypto.git
+$ git clone https://github.com/golang/net.git
+$ git clone https://github.com/golang/sys.git
+</code></pre><p>git clone完之后可以重新<code>go get</code>, 应该就可以了, 此时可以通过bundler命令进行桌面可执行文件生成, 但是我们要先进行前端部分的build, 如果你没有安装parcel, 那么先全局进行安装parcel:</p>
+<pre><code>yarn global add parcel-bundler
+
+or 
+
+npm install parcel-bundler -g
+</code></pre><p>进行build:</p>
+<pre><code>$ cd src
+$ yarn or npm install
+$ npm run build
+</code></pre><p>接下来可以可以bundler了:</p>
+<pre><code>$ cd ..
+$ astilectron-bundler -v
+</code></pre><p>上面那一步会去下载astlectron和electron, 天朝的话八成又会出问题了, 就是download没速度或者过于缓慢导致failed, 针对这点, 可能这样:</p>
 <p>首先, 在当前项目建立一个文件夹, 比如<strong>cache_astilectron_bundler</strong>, 然后在<strong>bundler.json</strong>中添加一行代码:</p>
 <p>  “cache_path”: “cache_astilectron_bundler”</p>
 <p>然后可以在<a href="https://github.com/electron/electron/releases?after=v1.8.2-beta.2" target="_blank" rel="noopener">https://github.com/electron/electron/releases?after=v1.8.2-beta.2</a>找到对应你系统的<strong>electron 1.8.1</strong>的版本, 放在<strong>cache_astilectron_bundler</strong>中, 并且做以下更名:</p>
-<p>  electron-windows-amd64-1.8.1.zip(windows系统)<br>  electron-darwin-amd64-1.8.1.zip(OSX系统)<br>  electron-linux-amd64-1.8.1.zip(linux系统)</p>
-<p>在<a href="https://github.com/asticode/astilectron/releases" target="_blank" rel="noopener">https://github.com/asticode/astilectron/releases</a>下载astilectron的0.20.0版本, 同样放在<strong>cache_astilectron_bundler</strong>中, 更名为:</p>
-<p>  astilectron-0.20.0.zip</p>
-<p>当然, 如果你想在同一台pc同时bundler三个系统的版本, 那么要下三个对应版本的electron 1.8.1, 并且做上面的更名, 都放在<strong>cache_astilectron_bundler</strong>中, 然后在bundler.json中添加以下代码:</p>
-<p>  “environments”: [<br>      {“arch”: “amd64”, “os”: “darwin”},<br>      {“arch”: “amd64”, “os”: “linux”},<br>      {“arch”: “amd64”, “os”: “windows”}<br>  ],</p>
-<p>接下来应该可以bundler生成对应的二进制可执行文件了.默认生成地址是在当前项目的output文件夹中</p>
+<pre><code>electron-windows-amd64-1.8.1.zip(windows系统)
+electron-darwin-amd64-1.8.1.zip(OSX系统)
+electron-linux-amd64-1.8.1.zip(linux系统)
+</code></pre><p>在<a href="https://github.com/asticode/astilectron/releases" target="_blank" rel="noopener">https://github.com/asticode/astilectron/releases</a>下载astilectron的0.20.0版本, 同样放在<strong>cache_astilectron_bundler</strong>中, 更名为:</p>
+<pre><code>astilectron-0.20.0.zip
+</code></pre><p>当然, 如果你想在同一台pc同时bundler三个系统的版本, 那么要下三个对应版本的electron 1.8.1, 并且做上面的更名, 都放在<strong>cache_astilectron_bundler</strong>中, 然后在bundler.json中添加以下代码:</p>
+<pre><code>&quot;environments&quot;: [
+    {&quot;arch&quot;: &quot;amd64&quot;, &quot;os&quot;: &quot;darwin&quot;},
+    {&quot;arch&quot;: &quot;amd64&quot;, &quot;os&quot;: &quot;linux&quot;},
+    {&quot;arch&quot;: &quot;amd64&quot;, &quot;os&quot;: &quot;windows&quot;}
+],
+</code></pre><p>接下来应该可以bundler生成对应的二进制可执行文件了.默认生成地址是在当前项目的output文件夹中</p>
 <h2 id="项目演示"><a href="#项目演示" class="headerlink" title="项目演示:"></a>项目演示:</h2><p>登录可以选择英文或者中文:</p>
 <p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/login_english.png" alt="login_English"></p>
 <p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/login_chinese.png" alt="login_Chinese"></p>
@@ -447,13 +464,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
+                    <a href="/2018/02/02/ManifestAmbiguity/">AndroidManifest Ambiguity方案实现</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                    <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
                 </span>
             </li>
             
@@ -465,7 +482,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/02/02/ManifestAmbiguity/">AndroidManifest Ambiguity方案实现</a>
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
                 </span>
             </li>
             
@@ -490,13 +507,13 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Vue/" style="font-size: 11.99458909947113px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Android逆向/" style="font-size: 14.126488098568519px;" class="tag-cloud-link">Android逆向</a>
     
-    <a href="/tags/Golang/" style="font-size: 18.764759766940557px;" class="tag-cloud-link">Golang</a>
+    <a href="/tags/Vue/" style="font-size: 13.518332511088733px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/galgame/" style="font-size: 13.723581433859627px;" class="tag-cloud-link">galgame</a>
+    <a href="/tags/Golang/" style="font-size: 15.469271899974483px;" class="tag-cloud-link">Golang</a>
     
-    <a href="/tags/Android逆向/" style="font-size: 19.43966524358606px;" class="tag-cloud-link">Android逆向</a>
+    <a href="/tags/galgame/" style="font-size: 15.990714788156861px;" class="tag-cloud-link">galgame</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
