@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AONOSORA">
+    
+    <meta name="description" content="にひひ~~">
+    
+    
+    
+    
+    
+    
+    <title>基于Vue和Go的桌面端管理star应用 | 喵绪～</title>
+    <link href=”https://myau.moe“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: '6OTkVF2aNAnVRRuTPpOP934w-gzGzoHsz',
+        appKey: '83MfiENky0XoWE8XHM3gUpox'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/http:/p1r8dwfrm.bkt.clouddn.com/avatar.jpg'
+        var previews = 'http://p1r8dwfrm.bkt.clouddn.com/preivew/034.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/045.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/048.jpg,http://p1r8dwfrm.bkt.clouddn.com/preivew/215.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://myau.moe" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://myau.moe">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">喵绪～</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/Vue/">Vue</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Golang/">Golang</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/galgame/">galgame</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/message">
+                        <i class="fa fa-heart"></i>留言板
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://myau.moe">喵绪～</a>
+        >
+        <span>基于Vue和Go的桌面端管理star应用</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Vue/">Vue</a>, 
+                
+                <a href="/tags/Golang/">Golang</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-04-23
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-04-23
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Vue/">Vue</a>, 
+                
+                <a href="/tags/Golang/">Golang</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>这是一款基于Vue2和Golang的跨平台桌面端管理Star项目应用</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><p>自己star的repo已经有100多个了, 有一天自己翻了一下列表, 想起来有一堆东西自己也不知道为什么当初star了…(应该是跟风大佬2333), 不过, 我个人认为, 一般在github上star别人的项目无非有以下几点:</p>
+<ul>
+<li>这个项目在当前或者之后的项目中用到, star了以防自己以后忘记找不到(比如前端经常用到的一堆npm包那种)</li>
+<li>要对这个项目的源码实现等进行研究细读(比如Vue, React之类的)</li>
+<li>实用型项目(比如SS, lantern, 还有一些开车项目之类的…)</li>
+<li>开源书籍文档之类的</li>
+<li>其他原因, 比如出于对作者的鼓励, 或者就是跟风大佬star, 或者就是认识的人互粉这样的…</li>
+</ul>
+<p>至于fork别人的项目, 一般就是你要进行一些对应的修改, 然后将修改PR到原项目中, 才是进行fork的, 这个倒没有必要细究了</p>
+<p>我star项目的原因主要是前面三种, 但是star的一多自己也给忘了, 感觉这样不好, 于是想写一个方便自己管理star项目的客户端</p>
+<p>正好自己没怎么写过桌面端应用, 也算是一次实践练习了, 项目地址<a href="https://github.com/ZEROKISEKI/starsManager/" target="_blank" rel="noopener">https://github.com/ZEROKISEKI/starsManager/</a></p>
+<h2 id="技术选用"><a href="#技术选用" class="headerlink" title="技术选用:"></a>技术选用:</h2><p>桌面web化的一般可以用electron作为支持, 而前端方面稍微会写一点的就是vue, 那么有一个对应的支持<a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">electron-vue</a>, 但是一般我们知道, 与系统API的交互由electron提供的API或者是有node.js去搞, 然后通过ipc之类的进行消息传递, 而由于最近是入门了golang, 所以在想能不能用前端代码去写用户表现, 而用golang作为系统API交互支持, 然后就找到了<a href="https://github.com/asticode/go-astilectron" target="_blank" rel="noopener">go-astilectron</a>这个项目:</p>
+<blockquote>
+<p>Thanks to go-astilectron build cross platform GUI apps with GO and HTML/JS/CSS. It is the official GO bindings of astilectron and is powered by Electron.</p>
+</blockquote>
+<p>Go和Javascript可以通过sendMessage和OnMessage等接口进行消息的传递, 接下来是前端的选择, 如下所示, 其中parcel, vuetify, pouchdb都是第一次使用:</p>
+<p>Vue全家桶系列: Vue2 + Vue-router + Vuex + Vue-i18n<br>前端模块打包构建: parcel<br>UI框架: Vuetify(一款渐进式Material Design框架)<br>前端数据库: Pouchdb<br>网络请求: axios<br>代码高亮和markdown渲染: github-markdown-css(自己造轮子不如用别人的轮子系列)  </p>
+<h2 id="项目构建"><a href="#项目构建" class="headerlink" title="项目构建:"></a>项目构建:</h2><p>首先你得安装了Golang, 并且设置好了$GOROOT和$GOPATH等变量, 如果没有配置过, 那么可以参考<a href="https://github.com/astaxie/build-web-application-with-golang/" target="_blank" rel="noopener">build-web-application-with-golang</a>教程配置</p>
+<p>如果上面的部分已经配置好了, 那么接下来要安装<code>go-astilectron</code>相关依赖:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/asticode/<span class="keyword">go</span>-astilectron</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/asticode/<span class="keyword">go</span>-astilectron-bundler/...</span><br><span class="line">$ <span class="keyword">go</span> <span class="built_in">get</span> github.<span class="keyword">com</span>/ZEROKISEKI/<span class="keyword">go</span>-astilectron-bootstrap</span><br></pre></td></tr></table></figure>
+<p>在天朝的话, 上面get的过程八成会遇到这个错误</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unrecognized <span class="keyword">import</span> <span class="built_in">path</span> <span class="string">"golang.org/x/ ..."</span></span><br></pre></td></tr></table></figure>
+<p>关于这个错误, 如果不能翻墙的话, 可以用golang的github镜像库去解决:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir -p <span class="variable">$GOPATH</span>/src/golang.org/x</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="variable">$GOPATH</span>/src/golang.org/x</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/golang/crypto.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/golang/net.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/golang/sys.git</span></span><br></pre></td></tr></table></figure>
+<p>git clone完之后可以重新<code>go get</code>, 应该就可以了, 此时可以通过bundler命令进行桌面可执行文件生成, 但是我们要先进行前端部分的build, 如果你没有安装parcel, 那么先全局进行安装parcel, 再进行build:</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yarn global <span class="keyword">add </span>parcel-<span class="keyword">bundler</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">or </span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install </span>parcel-<span class="keyword">bundler </span>-g</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> src</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yarn or npm install</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm run build</span></span><br></pre></td></tr></table></figure>
+<p>接下来可以可以bundler了:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ..</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> astilectron-bundler -v</span></span><br></pre></td></tr></table></figure>
+<p>上面那一步会去下载astlectron和electron, 天朝的话八成又会出问题了, 就是download没速度或者过于缓慢导致failed, 针对这点, 可能这样:</p>
+<p>首先, 在当前项目建立一个文件夹, 比如<strong>cache_astilectron_bundler</strong>, 然后在<strong>bundler.json</strong>中添加一行代码:</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"cache_path"</span>: <span class="string">"cache_astilectron_bundler"</span></span><br></pre></td></tr></table></figure>
+<p>然后可以在<a href="https://github.com/electron/electron/releases?after=v1.8.2-beta.2" target="_blank" rel="noopener">https://github.com/electron/electron/releases?after=v1.8.2-beta.2</a>找到对应你系统的<strong>electron 1.8.1</strong>的版本, 放在<strong>cache_astilectron_bundler</strong>中, 并且做以下更名:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">electron-windows-amd64-1</span><span class="selector-class">.8</span><span class="selector-class">.1</span><span class="selector-class">.zip</span>(<span class="selector-tag">windows</span>系统)</span><br><span class="line"><span class="selector-tag">electron-darwin-amd64-1</span><span class="selector-class">.8</span><span class="selector-class">.1</span><span class="selector-class">.zip</span>(<span class="selector-tag">OSX</span>系统)</span><br><span class="line"><span class="selector-tag">electron-linux-amd64-1</span><span class="selector-class">.8</span><span class="selector-class">.1</span><span class="selector-class">.zip</span>(<span class="selector-tag">linux</span>系统)</span><br></pre></td></tr></table></figure>
+<p>在<a href="https://github.com/asticode/astilectron/releases" target="_blank" rel="noopener">https://github.com/asticode/astilectron/releases</a>下载astilectron的0.20.0版本, 同样放在<strong>cache_astilectron_bundler</strong>中, 更名为:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">astilectron-0</span><span class="selector-class">.20</span><span class="selector-class">.0</span><span class="selector-class">.zip</span></span><br></pre></td></tr></table></figure>
+<p>当然, 如果你想在同一台pc同时bundler三个系统的版本, 那么要下三个对应版本的electron 1.8.1, 并且做上面的更名, 都放在<strong>cache_astilectron_bundler</strong>中, 然后在bundler.json中添加以下代码:</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">"environments"</span>: [</span><br><span class="line">    &#123;<span class="string">"arch"</span>: <span class="string">"amd64"</span>, <span class="string">"os"</span>: <span class="string">"darwin"</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"arch"</span>: <span class="string">"amd64"</span>, <span class="string">"os"</span>: <span class="string">"linux"</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"arch"</span>: <span class="string">"amd64"</span>, <span class="string">"os"</span>: <span class="string">"windows"</span>&#125;</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
+<p>接下来应该可以bundler生成对应的二进制可执行文件了.默认生成地址是在当前项目的output文件夹中</p>
+<h2 id="项目演示"><a href="#项目演示" class="headerlink" title="项目演示:"></a>项目演示:</h2><p>登录可以选择英文或者中文:</p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/login_english.png" alt="login_English"></p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/login_chinese.png" alt="login_Chinese"></p>
+<p>使用OAuth登录后, 可以看到你已经starred的repo的分类(按language):</p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/see_starred_repo.png" alt="see_starred_repo"></p>
+<p>代码文件和markdown文件均进行了渲染, 并且写了一个directive, 防止无法加载如<strong>./xxx,../xxx,#xxx</strong>这种url地址:</p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/see_file_content.png" alt="see_file_content"></p>
+<p>研究了octotree的部分源码, 自己也写了个可以查看项目代码树的组件:</p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/see_repo_tree.gif" alt="see_repo_tree"></p>
+<p>自定义分类:</p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/customized_classification_1.gif" alt="customized_classification_1"></p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/customized_classification_2.gif" alt="customized_classification_2"></p>
+<p><img src="" alt="customized_classification_3"><a href="http://p0w4szagp.bkt.clouddn.com/starsManager/customized_classification_3.gif" target="_blank" rel="noopener">http://p0w4szagp.bkt.clouddn.com/starsManager/customized_classification_3.gif</a></p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/customized_classification_4.gif" alt="customized_classification_4"></p>
+<p>离线环境下可以查看之前加载过的文件:</p>
+<p><img src="http://p0w4szagp.bkt.clouddn.com/starsManager/offline.gif" alt="offline"></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记:"></a>后记:</h2><p>第一次使用parcel, 号称零配置构建真不是盖的, 但是在使用的过程还是出现了问题, 主要是<code>vuetify.css/vuetify.min.css</code>中有些样式使用了诸如<strong>display: -webkit-box; -webkit-box-orient: vertical;</strong>的写法, 而这种方式无论是在autoprefixer还是压缩css的cssnano中都已废除, 会直接将这样的代码删除, 而parcel的build默认采用了cssnano, 不使用它的方法只能是<code>--no-minify</code>, 但是这样的话所有的文件都没有压缩, 打包出来的js文件有几m大小(不过还是用file路径, 所以没什么影响)</p>
+<p>go-astilectron加载file path文件进行github oauth, 主要是通过new一个地址为github oauth authorize的window, 然后监听<code>webcontents.will.navigate</code>和<code>webcontents.get.redirect.request</code>这两个事件, 将oauth返回的code去请求token, 再进行消息传递给主窗口, 主窗口再SendMessage给前端token, 就完成了oauth的过程, 然而go-astilectron没有这两个事件的支持, 于是提了个PR添加了这两个事件的支持, 顺带也写了个<a href="https://github.com/ZEROKISEKI/go-astilectron-oauth-demo" target="_blank" rel="noopener">demo</a>, 不过目前<code>go-astilectron</code>还是有很多未完善的东西, 所以后面会出现什么坑我也不是很清楚(如果遇到坑就补)</p>
+<p>检测离线状态(主要是为了避免离线状态下还request的情况)一开始打算用的navigator.online, 但是这东西返回false的时候没问题, true的时候不一定是能上网的(比如你启用了VMware Network), 于是用go写了个与api.github.com进行tcp连接的dial, 进行离线状态检测, 在mac下无问题, 但是在windows下会出现<code>cannot read Webcontents of undefined</code>的问题, 这个问题还需修正</p>
+<p>感觉每一次用新的东西都是踩坑的过程2333, 如果感兴趣的话, 欢迎star</p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '基于Vue和Go的桌面端管理star应用'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AONOSORA
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="http://p1r8dwfrm.bkt.clouddn.com/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description">にひひ~~</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/02/02/ManifestAmbiguity/">AndroidManifest Ambiguity方案实现</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/02/02/ManifestAmbiguity/">AndroidManifest Ambiguity方案实现</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/04/23/StarsManager/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/04/23/StarsManager/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/04/23/StarsManager/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/Vue/" style="font-size: 18.97307923287436px;" class="tag-cloud-link">Vue</a>
+    
+    <a href="/tags/Golang/" style="font-size: 19.15222790163573px;" class="tag-cloud-link">Golang</a>
+    
+    <a href="/tags/galgame/" style="font-size: 19.338899065878135px;" class="tag-cloud-link">galgame</a>
+    
+    <a href="/tags/Android逆向/" style="font-size: 15.903360370508604px;" class="tag-cloud-link">Android逆向</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://blog.micblo.com/" target="_blank">麦麦小家</a>
+    </li>
+    
+    <li>
+        <a href="https://aoaoao.me/" target="_blank">树洞</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AONOSORA Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: 'http://p1r8dwfrm.bkt.clouddn.com/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+<script src="/js/comment/leancloud.js"></script>
+
+
+<script src="/js/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.owner = 'ZEROKISEKI'
+      window.commentConfig.repo = 'gal-comment-repo'
+      window.commentConfig.client_id = '27d3fea0ef621e9ff1e6'
+      window.commentConfig.client_secret = '1c953686c8acde73f925162eb81c229ab4b7ec58'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+        owner: 'ZEROKISEKI',
+        repo: 'gal-comment-repo',
+        client_id: '27d3fea0ef621e9ff1e6',
+        client_secret: '1c953686c8acde73f925162eb81c229ab4b7ec58',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
+
+</html>
