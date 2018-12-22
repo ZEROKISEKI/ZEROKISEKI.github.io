@@ -152,15 +152,15 @@
                         
                         
                         <li>
-                            <a href="/tags/galgame/">galgame</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/Vue/">Vue</a>
                         </li>
                         
                         <li>
                             <a href="/tags/Golang/">Golang</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/galgame/">galgame</a>
                         </li>
                         
                         
@@ -319,21 +319,21 @@ electron-linux-amd64-1.8.1.zip(linux系统)
 ],
 </code></pre><p>接下来应该可以bundler生成对应的二进制可执行文件了.默认生成地址是在当前项目的output文件夹中</p>
 <h2 id="项目演示"><a href="#项目演示" class="headerlink" title="项目演示:"></a>项目演示:</h2><p>登录可以选择英文或者中文:</p>
-<p><img src="/2018/04/23/StarsManager/starsManager/login_english.png" alt="login_English"></p>
-<p><img src="/2018/04/23/StarsManager/starsManager/login_chinese.png" alt="login_Chinese"></p>
+<p><img src="/2018/04/23/StarsManager/login_english.png" alt="login_English"></p>
+<p><img src="/2018/04/23/StarsManager/login_chinese.png" alt="login_Chinese"></p>
 <p>使用OAuth登录后, 可以看到你已经starred的repo的分类(按language):</p>
-<p><img src="/2018/04/23/StarsManager/starsManager/see_starred_repo.png" alt="see_starred_repo"></p>
+<p><img src="/2018/04/23/StarsManager/see_starred_repo.png" alt="see_starred_repo"></p>
 <p>代码文件和markdown文件均进行了渲染, 并且写了一个directive, 防止无法加载如<strong>./xxx,../xxx,#xxx</strong>这种url地址:</p>
-<p><img src="/2018/04/23/StarsManager/starsManager/see_file_content.png" alt="see_file_content"></p>
+<p><img src="/2018/04/23/StarsManager/see_file_content.png" alt="see_file_content"></p>
 <p>研究了octotree的部分源码, 自己也写了个可以查看项目代码树的组件:</p>
-<p><img src="/2018/04/23/StarsManager/starsManager/see_repo_tree.gif" alt="see_repo_tree"></p>
+<p><img src="/2018/04/23/StarsManager/see_repo_tree.gif" alt="see_repo_tree"></p>
 <p>自定义分类:</p>
-<p><img src="/2018/04/23/StarsManager/starsManager/customized_classification_1.gif" alt="customized_classification_1"></p>
-<p><img src="/2018/04/23/StarsManager/starsManager/customized_classification_2.gif" alt="customized_classification_2"></p>
-<p><img src="/2018/04/23/StarsManager/starsManager/customized_classification_3.gif" alt="customized_classification_3"></p>
-<p><img src="/2018/04/23/StarsManager/starsManager/customized_classification_4.gif" alt="customized_classification_4"></p>
+<p><img src="/2018/04/23/StarsManager/customized_classification_1.gif" alt="customized_classification_1"></p>
+<p><img src="/2018/04/23/StarsManager/customized_classification_2.gif" alt="customized_classification_2"></p>
+<p><img src="/2018/04/23/StarsManager/customized_classification_3.gif" alt="customized_classification_3"></p>
+<p><img src="/2018/04/23/StarsManager/customized_classification_4.gif" alt="customized_classification_4"></p>
 <p>离线环境下可以查看之前加载过的文件:</p>
-<p><img src="/2018/04/23/StarsManager/starsManager/offline.gif" alt="offline"></p>
+<p><img src="/2018/04/23/StarsManager/offline.gif" alt="offline"></p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记:"></a>后记:</h2><p>第一次使用parcel, 号称零配置构建真不是盖的, 但是在使用的过程还是出现了问题, 主要是<code>vuetify.css/vuetify.min.css</code>中有些样式使用了诸如<strong>display: -webkit-box; -webkit-box-orient: vertical;</strong>的写法, 而这种方式无论是在autoprefixer还是压缩css的cssnano中都已废除, 会直接将这样的代码删除, 而parcel的build默认采用了cssnano, 不使用它的方法只能是<code>--no-minify</code>, 但是这样的话所有的文件都没有压缩, 打包出来的js文件有几m大小(不过还是用file路径, 所以没什么影响)</p>
 <p>go-astilectron加载file path文件进行github oauth, 主要是通过new一个地址为github oauth authorize的window, 然后监听<code>webcontents.will.navigate</code>和<code>webcontents.get.redirect.request</code>这两个事件, 将oauth返回的code去请求token, 再进行消息传递给主窗口, 主窗口再SendMessage给前端token, 就完成了oauth的过程, 然而go-astilectron没有这两个事件的支持, 于是提了个PR添加了这两个事件的支持, 顺带也写了个<a href="https://github.com/ZEROKISEKI/go-astilectron-oauth-demo" target="_blank" rel="noopener">demo</a>, 不过目前<code>go-astilectron</code>还是有很多未完善的东西, 所以后面会出现什么坑我也不是很清楚(如果遇到坑就补)</p>
 <p>检测离线状态(主要是为了避免离线状态下还request的情况)一开始打算用的navigator.online, 但是这东西返回false的时候没问题, true的时候不一定是能上网的(比如你启用了VMware Network), 于是用go写了个与api.github.com进行tcp连接的dial, 进行离线状态检测, 在mac下无问题, 但是在windows下会出现<code>cannot read Webcontents of undefined</code>的问题, 这个问题还需修正</p>
@@ -454,7 +454,7 @@ electron-linux-amd64-1.8.1.zip(linux系统)
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
+                    <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
                 </span>
             </li>
             
@@ -466,7 +466,7 @@ electron-linux-amd64-1.8.1.zip(linux系统)
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/04/23/StarsManager/">基于Vue和Go的桌面端管理star应用</a>
+                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
                 </span>
             </li>
             
@@ -491,11 +491,11 @@ electron-linux-amd64-1.8.1.zip(linux系统)
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/galgame/" style="font-size: 14.04267753390689px;" class="tag-cloud-link">galgame</a>
+    <a href="/tags/Vue/" style="font-size: 14.48474403614724px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/Vue/" style="font-size: 11.073452020342323px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Golang/" style="font-size: 17.17619943245612px;" class="tag-cloud-link">Golang</a>
     
-    <a href="/tags/Golang/" style="font-size: 11.62909381340653px;" class="tag-cloud-link">Golang</a>
+    <a href="/tags/galgame/" style="font-size: 18.631026667839617px;" class="tag-cloud-link">galgame</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -585,7 +585,7 @@ electron-linux-amd64-1.8.1.zip(linux系统)
 </script>
 <script>
     window.slideConfig = {
-      prefix: 'slide/background',
+      prefix: '/imgs/slide/background',
       ext: 'jpg',
       maxCount: '6'
     }
