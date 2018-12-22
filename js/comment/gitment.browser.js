@@ -3413,7 +3413,7 @@ var Gitment = function () {
       }, options);
 
       this.state.user.isLoggingIn = true;
-      _utils.http.post('http://gh-oauth.myau.me', {
+      _utils.http.post('http://go-oauth.myau.me', {
         code: code,
         client_id: client_id,
         client_secret: client_secret
