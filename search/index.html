@@ -250,7 +250,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview4.jpg'
+        var defaultPreview = '/imgs/preview/preview2.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -289,6 +289,7 @@
         showPostsTime(Counter)
       }
       if (useComment) {
+        console.log('fuck')
         showCommentCount()
       }
     }
@@ -336,9 +337,7 @@
     function showPostsTime(Counter) {
       var entries = []
       var excerpts = $('.article-excerpt')
-      console.log(excerpts.first().find('i.fa-eye').first().text())
-      if (excerpts.first().find('i.fa-eye').first().text().length == 0) {
-        excerpts.each(function () {
+      excerpts.each(function () {
           entries.push($(this).find('.title-article').first().find('a').attr('href').trim())
         })
         var query = new AV.Query(Counter)
@@ -361,8 +360,7 @@
           })
         }).then(function (error) {
           console.log('Error:' + error.code + ' ' + error.message)
-         })
-      }
+        })
     }
 
     function showCommentCount() {
@@ -543,11 +541,11 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/galgame/" style="font-size: 17.774610869476387px;" class="tag-cloud-link">galgame</a>
+    <a href="/tags/galgame/" style="font-size: 15.146246394391554px;" class="tag-cloud-link">galgame</a>
     
-    <a href="/tags/Vue/" style="font-size: 8.603564256959265px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 8.837627086458589px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/Golang/" style="font-size: 19.749177329153348px;" class="tag-cloud-link">Golang</a>
+    <a href="/tags/Golang/" style="font-size: 14.098111560050047px;" class="tag-cloud-link">Golang</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
