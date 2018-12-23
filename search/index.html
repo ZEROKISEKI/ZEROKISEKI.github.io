@@ -246,12 +246,11 @@
 
     function displaySearchResult(result) {
       var resultList = $('#article-list')
-      console.log(result[0])
       result.forEach(function (article) {
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview2.jpg'
+        var defaultPreview = '/imgs/preview/preview3.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -268,6 +267,9 @@
                                         </h1>
                                     </div>
                                     <div class="tag-article">
+                                        ${ article.tags.length > 0 ? `<span class="label label-gal"><i class="fa fa-tags"></i>${ article.tags.map(function (tag) {
+                                          return `<a href=${ tag.permalink }>${ tag.name }</a>` 
+                                        }).join(', ') }</span>` : '' }
                                         ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
                                     </div>
                                     <div class="alert alert-gal article-body content-article">
@@ -541,11 +543,11 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Vue/" style="font-size: 14.451087372491614px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 9.625266431601652px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/Golang/" style="font-size: 8.91350548628639px;" class="tag-cloud-link">Golang</a>
+    <a href="/tags/Golang/" style="font-size: 17.14778685172218px;" class="tag-cloud-link">Golang</a>
     
-    <a href="/tags/galgame/" style="font-size: 13.657113264771345px;" class="tag-cloud-link">galgame</a>
+    <a href="/tags/galgame/" style="font-size: 8.886933466764857px;" class="tag-cloud-link">galgame</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
