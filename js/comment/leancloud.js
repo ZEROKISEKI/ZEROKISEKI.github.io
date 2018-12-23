@@ -52,7 +52,6 @@
 	function showPostsTime(Counter) {
 		var entries = []
 		var excerpts = $('.article-excerpt')
-		console.log('fuck1')
 		excerpts.each(function () {
 			entries.push($(this).find('.title-article').first().find('a').attr('href').trim())
 		})
