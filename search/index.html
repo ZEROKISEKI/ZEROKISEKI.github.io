@@ -226,7 +226,7 @@
     // 获取每页的页码数
     var pageSize = '10'
     var useLeancloud = '83MfiENky0XoWE8XHM3gUpox'
-    var useComment = 'true'
+    var useComment = 'true' == true
     $.getJSON('/content.json', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -250,7 +250,7 @@
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview4.jpg'
+        var defaultPreview = '/imgs/preview/preview3.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -540,11 +540,11 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Vue/" style="font-size: 9.448661485982647px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 10.477599529630938px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/Golang/" style="font-size: 18.329025025680856px;" class="tag-cloud-link">Golang</a>
+    <a href="/tags/Golang/" style="font-size: 13.858968079698371px;" class="tag-cloud-link">Golang</a>
     
-    <a href="/tags/galgame/" style="font-size: 13.509766625271777px;" class="tag-cloud-link">galgame</a>
+    <a href="/tags/galgame/" style="font-size: 9.138013074614745px;" class="tag-cloud-link">galgame</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
