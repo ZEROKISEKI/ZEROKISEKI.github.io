@@ -226,6 +226,7 @@
     // 获取每页的页码数
     var pageSize = '10'
     var useLeancloud = '83MfiENky0XoWE8XHM3gUpox'
+    var useComment = ''
     $.getJSON('/content.json', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -267,10 +268,6 @@
                                     </div>
                                     <div class="tag-article">
                                         ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
-                                        <span class="label label-gal">
-                                            <i class="fa fa-comments"></i>
-                                            <a href="${path}#comments">739</a>
-                                        </span>
                                     </div>
                                     <div class="alert alert-gal article-body content-article">
                                          <div class="item">
@@ -289,7 +286,10 @@
       })
       if (useLeancloud) {
         var Counter = AV.Object.extend('Counter')
-        showPostsTime(Counter)
+        // showPostsTime(Counter)
+      }
+      if (useComment) {
+        // showCommentCount()
       }
     }
 
@@ -360,6 +360,35 @@
       }).then(function (error) {
         console.log('Error:' + error.code + ' ' + error.message)
       })
+    }
+
+    function showCommentCount() {
+      const excerpts = $('.article-excerpt')
+      const owner = window.commentConfig.owner
+      const repo = window.commentConfig.repo
+      $.ajax({
+        url: "https://api.github.com/repos/" + owner + '/' + repo + '/issues',
+        data: {
+          creator: owner
+        }
+      }).done(function(issues) {
+        excerpts.each(function () {
+          const that = $(this)
+          that.find('h1 > a > span').each(function () {
+            const title = $(this).text()
+            const tags = that.find('div.tag-article')
+            const issue = issues.filter(function (issue) {
+              return issue.title === title
+            })
+            const comments = issue.length > 0 ? issue[0].comments : 0
+            tags.each(function () {
+              $(this).append('<span class="label label-gal"><i class="fa fa-comments"></i><a> ' + comments + '</a></span>')
+            })
+          })
+        })
+      }).fail(function (error) {
+        console.log(error)
+      });
     }
 
 </script>
@@ -474,13 +503,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
                 </span>
             </li>
             
@@ -511,11 +540,11 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/galgame/" style="font-size: 19.51053398614009px;" class="tag-cloud-link">galgame</a>
+    <a href="/tags/galgame/" style="font-size: 18.10988172706889px;" class="tag-cloud-link">galgame</a>
     
-    <a href="/tags/Vue/" style="font-size: 19.98339928401997px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 12.852546285690197px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/Golang/" style="font-size: 19.542289331884618px;" class="tag-cloud-link">Golang</a>
+    <a href="/tags/Golang/" style="font-size: 9.205542816725394px;" class="tag-cloud-link">Golang</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
