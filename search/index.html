@@ -246,11 +246,12 @@
 
     function displaySearchResult(result) {
       var resultList = $('#article-list')
+      console.log(result[0])
       result.forEach(function (article) {
       	var [month, day] = article.date.split('-')
         ''
         ''
-        var defaultPreview = '/imgs/preview/preview4.jpg'
+        var defaultPreview = '/imgs/preview/preview3.jpg'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '/' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
@@ -509,13 +510,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
+                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2017/12/30/helloWorld/">即将到来的2018</a>
+                    <a href="/2018/01/10/hooksoft/">强推hooksoft生肉吐槽</a>
                 </span>
             </li>
             
@@ -540,11 +541,11 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Vue/" style="font-size: 15.968723988820013px;" class="tag-cloud-link">Vue</a>
+    <a href="/tags/Vue/" style="font-size: 8.430203155315395px;" class="tag-cloud-link">Vue</a>
     
-    <a href="/tags/Golang/" style="font-size: 11.208183425125537px;" class="tag-cloud-link">Golang</a>
+    <a href="/tags/Golang/" style="font-size: 19.99551541422233px;" class="tag-cloud-link">Golang</a>
     
-    <a href="/tags/galgame/" style="font-size: 18.82398827614563px;" class="tag-cloud-link">galgame</a>
+    <a href="/tags/galgame/" style="font-size: 16.900918781597735px;" class="tag-cloud-link">galgame</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
